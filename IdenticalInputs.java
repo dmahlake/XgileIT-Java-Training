@@ -12,8 +12,8 @@ public class IdenticalInputs {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter any decimal number of your choice");
         double d = scan.nextDouble();
-        String bob = Double.toString(d);
-        String[] convert = bob.split("\\.");
+        String str = Double.toString(d);
+        String[] convert = str.split("\\.");
 
         int a = Integer.parseInt(convert[0]);
         int b = Integer.parseInt(convert[1]);
