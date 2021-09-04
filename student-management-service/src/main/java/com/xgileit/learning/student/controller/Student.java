@@ -1,10 +1,8 @@
 package com.xgileit.learning.student.controller;
 
-import java.security.SecureRandom;
-
 public class Student {
 
-    private int studentId;
+    private Integer studentId;
     private String firstName;
     private String lastName;
     private long phoneNumber ;
@@ -13,9 +11,18 @@ public class Student {
     private String address;
     private int key;
 
-   public Student(int studentId, String firstName, String lastName, long phoneNumber, String gender, short age, String address)
+    /**
+     * I did not initialize the studentNumber in this constructor, because i'm going to generate
+     * a random studentNumber for each Student Object being created.
+     * @param firstName
+     * @param lastName
+     * @param phoneNumber
+     * @param gender
+     * @param age
+     * @param address
+     */
+   public Student(String firstName, String lastName, long phoneNumber, String gender, short age, String address)
     {
-        this.studentId = studentId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -29,14 +36,8 @@ public class Student {
 
     }
 
-    public int getStudentId() {
-       /*
-        This method will generate a 5 digit random numbers for the student number
-        Each student will have a unique student number...
-        */
-        SecureRandom random = new SecureRandom();
-        studentId = random.nextInt(100000);
-        String formatted = String.format("%05d", studentId);
+    public Integer getStudentId() {
+
         return studentId;
 
     }
@@ -89,20 +90,21 @@ public class Student {
         this.address = address;
     }
 
-    public int getKey()
-    {
-        return key;
-    }
 
-    public void setKey(int key)
+    public void setStudentId(int studentId)
     {
-        this.key = key;
+        this.studentId = studentId;
     }
 
     public String toString() {
-       /*
-            I have override the toString method to display everything according to my liking
+       /**
+         * @return
+        * I have override the toString method to display everything according to my liking
         */
-        return "\n Student ID: " + studentId + "\n" + " First name: "+ firstName + "\n" + " Last name: " + lastName + "\n" + " Phone number: " + phoneNumber + "\n" + " Gender: " + gender + "\n" + " Age: " + age + "\n" + " Address: " + address +"\n";
+        return " First name: "+ firstName + "\n"
+                + " Last name: " + lastName + "\n"
+                + " Phone number: " + phoneNumber + "\n"
+                + " Gender: " + gender + "\n" + " Age: "
+                + age + "\n" + " Address: " + address +"\n }";
     }
 }

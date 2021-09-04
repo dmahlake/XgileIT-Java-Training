@@ -1,6 +1,6 @@
 package com.xgileit.learning.student;
 
-import com.xgileit.learning.student.service.StudentManagementImp;
+import com.xgileit.learning.student.service.imp.StudentManagementImp;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -13,7 +13,7 @@ public class StudentManagementServiceApplication {
 
 			SpringApplication.run(StudentManagementServiceApplication.class, args);
 			StudentManagementImp studentManagementImp = new StudentManagementImp();
-			/*
+			/**
 			    This is the instruction or main menu you can do on this program.
 			    Each an every number do a different thing on the program...
 			    We will call the all the methods besade on their numbers.
