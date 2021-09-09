@@ -8,17 +8,19 @@ import java.util.Scanner;
 
 @SpringBootApplication
 public class StudentManagementServiceApplication {
-
+	
+	
+	/**
+            This is the instruction or main menu you can do on this program.
+            Each an every number do a different thing on the program...
+	    We will call the all the methods besade on their numbers.
+	    To do that we are using switch/case statement
+	*/
 	public static void main(String[] args) {
 
 			SpringApplication.run(StudentManagementServiceApplication.class, args);
 			StudentManagementImp studentManagementImp = new StudentManagementImp();
-			/**
-			    This is the instruction or main menu you can do on this program.
-			    Each an every number do a different thing on the program...
-			    We will call the all the methods besade on their numbers.
-			    To do that we are using switch/case statement
-			 */
+			
 			System.out.println("***********Main menu****************");
 			System.out.println("Please choose a number of which program you want to run...");
 			System.out.println("**Press 1 Add new student**");
