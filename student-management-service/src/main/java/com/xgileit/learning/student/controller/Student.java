@@ -96,11 +96,12 @@ public class Student {
         this.studentId = studentId;
     }
 
-    public String toString() {
-       /**
+    /**
          * @return
         * I have override the toString method to display everything according to my liking
         */
+    public String toString() {
+       
         return " First name: "+ firstName + "\n"
                 + " Last name: " + lastName + "\n"
                 + " Phone number: " + phoneNumber + "\n"
