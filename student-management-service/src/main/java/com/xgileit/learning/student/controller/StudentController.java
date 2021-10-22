@@ -1,18 +1,15 @@
 package com.xgileit.learning.student.controller;
 
 
+import com.xgileit.learning.student.service.imp.StudentService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @RestController
-@RequestMapping(value ="/api/v1/student")
 public class StudentController {
 
-    ArrayList<String>studentList = new ArrayList<>();
+    private StudentService studentService;
 
-    @GetMapping
+   /* @GetMapping
     public String selectStudent()
     {
         return "Dipuo mahlake selected";
@@ -30,28 +27,14 @@ public class StudentController {
     }
 
     @DeleteMapping
-    public  String deleteStudent()
+    public  String deleteStudent() {
+        return "Student deleted";
+    }*/
+
+    @DeleteMapping("/dropOut")
+    public void deregister(@PathVariable("studendId") int studentId)
     {
-        return "Student record deleted";
+        studentService.deregisterCourse(studentId);
     }
 
-    @RequestMapping(value= "/fetch/{id}", method= RequestMethod.GET)
-    public String studentPath(@PathVariable ("studentId")int studentId)
-    {
-        if (studentId == 2)
-        {
-            return  "Student found";
-        }
-        return "Student not found";
-    }
-
-    @RequestMapping(value="/all/{student}", method = RequestMethod.GET)
-    public List listOfStudent(@PathVariable("studentId") int studentId, @RequestParam String name)
-    {
-        if (studentId == 2)
-        {
-            studentList.add(name);
-        }
-        return studentList;
-    }
 }
