@@ -4,6 +4,7 @@ package com.xgileit.learning.student.entity;
 import javax.persistence.*;
 
 @Entity
+@Data
 public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
