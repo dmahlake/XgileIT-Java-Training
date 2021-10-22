@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
+@Data
 public class Admin implements Serializable {
 
     @Id
