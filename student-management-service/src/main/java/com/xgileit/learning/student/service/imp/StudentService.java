@@ -9,6 +9,11 @@ public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
+    /**
+     * Deleting registered students
+     * @param studentId
+     */
+
     public void deregisterCourse(int studentId)
     {
         Student student = studentRepository.findByStudentId(studentId);

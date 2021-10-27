@@ -2,9 +2,9 @@ package com.xgileit.learning.student.entity;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Data
 public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,6 +13,9 @@ public class Teacher {
     private String firstName;
     @Column
     private String lastName;
+    @OneToMany(targetEntity = ClassRoom.class)
+    @JoinColumn(name = "teacher_Fk", referencedColumnName = "teacherId")
+    private List studentList;
 
 
 
@@ -36,4 +39,5 @@ public class Teacher {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
 }

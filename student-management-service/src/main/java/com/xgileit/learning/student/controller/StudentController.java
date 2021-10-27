@@ -9,7 +9,7 @@ public class StudentController {
 
     private StudentService studentService;
 
-   /* @GetMapping
+   @GetMapping
     public String selectStudent()
     {
         return "Dipuo mahlake selected";
@@ -29,7 +29,7 @@ public class StudentController {
     @DeleteMapping
     public  String deleteStudent() {
         return "Student deleted";
-    }*/
+    }
 
     @DeleteMapping("/dropOut")
     public void deregister(@PathVariable("studendId") int studentId)

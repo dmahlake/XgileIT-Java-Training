@@ -19,6 +19,11 @@ public class AdminServices {
     @Autowired
     private AdminRepository adminRepository;
 
+    /**
+     * adding new students
+     * @param request
+     */
+
     public void addStudent(Student request)
     {
        Student student = new Student();
@@ -30,14 +35,23 @@ public class AdminServices {
        studentRepository.save(request);
     }
 
+    /**
+     * Adding admin to the database
+     * @param request
+     */
     public void getAdmin(Admin request)
     {
         Admin admin = new Admin();
         admin.setUsername(request.getUsername());
         admin.setPassword(request.getPassword());
-        admin.setStudendList(request.getStudendList());
+        admin.setStudentList(request.getStudentList());
         adminRepository.save(request);
     }
+
+    /**
+     * Selecting a lict of all students
+     * @return
+     */
 
     public List<Student> findAllStudents()
     {
@@ -45,6 +59,11 @@ public class AdminServices {
     }
 
 
+    /**
+     * updating student details
+     * @param student
+     * @param studentId
+     */
      public void updateStudent(Student student, int studentId)
      {
         Student studentFind = studentRepository.findByStudentId(studentId);
@@ -56,6 +75,10 @@ public class AdminServices {
         studentRepository.save(studentFind);
      }
 
+    /**
+     * Deleting a particular student using student id
+     * @param studentId
+     */
      public void deleteStudent(int studentId)
      {
         Student deleteStudent = studentRepository.findByStudentId(studentId);

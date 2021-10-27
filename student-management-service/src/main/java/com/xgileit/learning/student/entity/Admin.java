@@ -6,7 +6,6 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Data
 public class Admin implements Serializable {
 
     @Id
@@ -18,7 +17,7 @@ public class Admin implements Serializable {
     private String password;
     @OneToMany(targetEntity = Student.class)
     @JoinColumn(name = "adminFk", referencedColumnName = "adminId")
-    private List studendList;
+    private List studentList;
 
     public Admin()
     {
@@ -41,14 +40,14 @@ public class Admin implements Serializable {
         this.password = password;
     }
 
-    public List getStudendList()
+    public List getStudentList()
     {
-        return studendList;
+        return studentList;
     }
 
-    public void setStudendList(List studendList)
+    public void setStudentList(List studendList)
     {
-        this.studendList = studendList;
+        this.studentList = studendList;
     }
 
 

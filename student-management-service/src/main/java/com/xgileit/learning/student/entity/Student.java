@@ -2,9 +2,9 @@ package com.xgileit.learning.student.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
-@Data
 public class Student implements Serializable {
 
     @Id
@@ -20,6 +20,9 @@ public class Student implements Serializable {
     private String gender;
     @Column
     private int age;
+    @OneToMany(targetEntity = ClassRoom.class)
+    @JoinColumn(name = "student_Fk", referencedColumnName = "studentId")
+    private List studentList;
 
     /**
      * I did not initialize the studentNumber in this constructor, because i'm going to generate
