@@ -15,17 +15,16 @@ public class CustomerController {
     private CustomerService customerService;
 
 
-    @GetMapping(value = "/customers")
+    @GetMapping(value = "/allCustomers")
     public List<Customer> getCustomer()
     {
         return customerService.allCustomers();
     }
 
     @PostMapping(value = "/addCustomer")
-    public String addcustomer(@RequestBody Customer customer)
+    public Object addcustomer(@RequestBody Customer customer)
     {
-        customerService.createCustomer(customer);
-        return "Successfully saved";
+            return customerService.createCustomer(customer);
     }
 
     @PutMapping(value = "update/{id}")

@@ -23,7 +23,7 @@ public class Customer implements Serializable {
     @Column
     private String lastName;
     @Column
-    private String emailAddres;
+    private String emailAddress;
     @Column
     private String password;
     @Column
@@ -57,11 +57,11 @@ public class Customer implements Serializable {
     }
 
     public String getEmailAddres() {
-        return emailAddres;
+        return emailAddress;
     }
 
-    public void setEmailAddres(String emailAddres) {
-        this.emailAddres = emailAddres;
+    public void setEmailAddres(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
     public String getPassword()

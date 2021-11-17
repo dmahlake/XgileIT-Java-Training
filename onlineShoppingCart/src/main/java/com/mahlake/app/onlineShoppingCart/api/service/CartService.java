@@ -23,22 +23,27 @@ public class CartService {
     @Autowired
     private ProductRepo productRepo;
 
-    public List<Cart> ListCustomerOrder()
+    @Autowired
+    private CustomerService service;
+
+    public List<Cart> ListCustomerOrder(String email, String password)
     {
+        service.loginFirst(email, password);
         return cartRepo.findAll();
     }
 
-    public void placeOrder(Cart request, int prodId, int custId)
+    public Cart placeOrder(Cart request, int prodId, Customer customer)
     {
-       Customer customer = customerRepo.findById(custId).get();
-        Product product = productRepo.findById(prodId).get();
+        customer = service.loginFirst(customer.getEmailAddres(), customer.getPassword());
         Cart cart = new Cart();
+        Product product = productRepo.findById(prodId).get();
+
         cart.setQuantity(request.getQuantity());
         cart.setPrice(request.getPrice());
         cart.setTotal(request.getTotal());
         cart.setCustomer(customer);
         cart.setProduct(product);
-        cartRepo.save(cart);
+        return cartRepo.save(cart);
     }
 
     public void updateOrder(Cart request, int id)
@@ -56,8 +61,7 @@ public class CartService {
 
     public void deleteOrder(int id)
     {
-        Cart delete = cartRepo.findById(id).get();
-        cartRepo.delete(delete);
+        cartRepo.deleteById(id);
     }
 
 

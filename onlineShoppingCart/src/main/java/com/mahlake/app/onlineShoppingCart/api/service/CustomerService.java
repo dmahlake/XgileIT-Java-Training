@@ -13,25 +13,24 @@ public class CustomerService{ //implements UserDetailsService {
     @Autowired
     private CustomerRepo customerRepo;
 
-   /* @Override
-    public UserDetails loadUserByUsername(String emailAddress) throws UsernameNotFoundException {
-        Customer customer = customerRepo.findByEmail(emailAddress);
-        if (customer == null)
-            throw new UsernameNotFoundException("User not found please register");
-
-        return new CustomerDetails(customer);
-    }*/
-
-    public void createCustomer(Customer request)
+    public Object createCustomer(Customer request)
     {
         Customer customer = new Customer();
-        customer.setFirstName(request.getFirstName());
-        customer.setLastName(request.getLastName());
-        customer.setEmailAddres(request.getEmailAddres());
-        customer.setPassword(request.getPassword());
-        customer.setPhoneNumber(request.getPhoneNumber());
-        customer.setAddress(request.getAddress());
-        customerRepo.save(customer);
+
+       /* if(findByEmail(customer.getEmailAddres()).equals(request.getEmailAddres()))
+        {
+            return "use another email";
+        }
+        else {*/
+            customer.setFirstName(request.getFirstName());
+            customer.setLastName(request.getLastName());
+            customer.setEmailAddres(request.getEmailAddres());
+            customer.setPassword(request.getPassword());
+            customer.setPhoneNumber(request.getPhoneNumber());
+            customer.setAddress(request.getAddress());
+
+            return customerRepo.save(customer);
+
     }
 
     public List<Customer>allCustomers()
@@ -50,9 +49,24 @@ public class CustomerService{ //implements UserDetailsService {
         customerRepo.save(updateInfo);
     }
 
+    public Customer loginFirst(String email, String password)
+    {
+        return customerRepo.findByEmailAddressAndPassword(email, password);
+    }
+
     public void deleteAccount(int id)
     {
-        Customer delete = customerRepo.findById(id).get();
-        customerRepo.delete(delete);
+       customerRepo.deleteById(id);
     }
+
+   /*public boolean emailExist(String email)
+    {
+        return customerRepo.exist(email);
+    }*/
+
+   /* public String findByEmail(String email)
+    {
+        customerRepo.findByEmailAddres(email);
+        return email;
+    }*/
 }
