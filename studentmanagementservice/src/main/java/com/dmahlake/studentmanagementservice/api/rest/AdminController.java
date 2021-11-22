@@ -3,10 +3,7 @@ package com.dmahlake.studentmanagementservice.api.rest;
 import com.dmahlake.studentmanagementservice.api.service.AdministratorServ;
 import com.dmahlake.studentmanagementservice.api.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("Admin/")
@@ -22,5 +19,12 @@ public class AdminController {
     public Object enrollStudent(@PathVariable String name, @PathVariable long studentId, @PathVariable long courseId)
     {
        return service.adminEnrollStudent(studentId, courseId, name);
+    }
+
+    @PutMapping("updateEnrollment")
+    public String updateEnrollment(@PathVariable String name, @PathVariable long studentId, @PathVariable long courseId)
+    {
+        service.UpdateEnrollStudent(studentId, courseId, name);
+        return "Successfully updated";
     }
 }

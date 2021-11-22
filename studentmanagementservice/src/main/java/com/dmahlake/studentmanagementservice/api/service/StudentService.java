@@ -22,4 +22,21 @@ public class StudentService {
 
         return studentRepo.save(student);
     }
+
+    public void deRegister(long id)
+    {
+        studentRepo.deleteById(id);
+    }
+
+    public Student updateStudent(Student request, long studentId)
+    {
+
+        Student updateStudent = studentRepo.findById(studentId).get();
+        updateStudent.setFirstName(request.getFirstName());
+        updateStudent.setLastName(request.getLastName());
+        updateStudent.setEmailAddress(request.getEmailAddress());
+        updateStudent.setMobileNumber(request.getMobileNumber());
+        updateStudent.setAddress(request.getAddress());
+        return studentRepo.save(updateStudent);
+    }
 }

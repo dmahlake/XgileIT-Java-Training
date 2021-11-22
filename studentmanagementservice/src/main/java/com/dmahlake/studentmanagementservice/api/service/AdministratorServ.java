@@ -46,6 +46,20 @@ public class AdministratorServ {
         return studentEnrollRepo.save(studentEnroll);
     }
 
+    public Object UpdateEnrollStudent(long studentId, long courseId, String name, long enrollId)
+    {
 
+        Student student = studentRepo.findById(studentId).get();
+        Course course = courseRepo.findById(courseId).get();
+
+        UserRoles userRoles = userRolesRepo.findByRoleName(name).get();
+
+        StudentEnroll studentEnroll = studentEnrollRepo.findById(enrollId).get();
+        studentEnroll.setStudent(student);
+        studentEnroll.setCourse(course);
+        studentEnroll.setUserRoles(userRoles);
+
+        return studentEnrollRepo.save(studentEnroll);
+    }
 
 }
