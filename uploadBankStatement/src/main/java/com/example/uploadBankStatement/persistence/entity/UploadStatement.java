@@ -12,14 +12,11 @@ import javax.persistence.*;
 public class UploadStatement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private long id;
-   @Column(name = "transaction_date")
-    private String transaction_date;
-    @Column(name= "description")
+    @Column(name = "transaction_date")
+    private String transactionDate;
     private String description;
-    @Column(name= "amount")
     private double amount;
-    @Column(name = "runningBalance")
-    private double remainingBalance;
+    private double runningBalance;
+    private String category;
 }

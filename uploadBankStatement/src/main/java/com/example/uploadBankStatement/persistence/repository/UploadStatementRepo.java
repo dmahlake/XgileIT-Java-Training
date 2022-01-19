@@ -11,6 +11,7 @@ import java.util.Optional;
 public interface UploadStatementRepo extends JpaRepository<UploadStatement, Long> {
 
 
-    @Query(nativeQuery = true, value = "SELECT amount,transaction_date, description FROM statement WHERE amount=:amount AND description=:description AND transaction_date=:transaction_date")
-    Optional<UploadStatement> findByAmountAndDescription(double amount, String description, String transaction_date);
+    @Query(nativeQuery = true, value = "SELECT * FROM statement WHERE amount=:amount AND description=:description AND transaction_date=:transactionDate")
+    Optional<UploadStatement> findByAmountAndDescription(double amount, String description, String transactionDate);
+
 }
